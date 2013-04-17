@@ -1,9 +1,15 @@
 CC=c++
 CCFLAGS=-Wall
 LDFLAGS=-lboost_system	-lboost_filesystem
-BINDIR=build/
+BINDIR=build
+TARGET=$(BINDIR)/mvfiles
 
-all:	$(BINDIR)/mvfiles
+.PHONY:	all
 
-$(BINDIR)/mvfiles:	mvfiles.cpp
+all:	$(TARGET)
+
+$(TARGET):	mvfiles.cpp
 	$(CC)	$^	-o $@	$(LDFLAGS)	$(CCFLAGS)
+
+clean:
+	rm build/*
