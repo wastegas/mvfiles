@@ -42,6 +42,7 @@ int main(int argc, char** argv)
 					fn = it->filename().string();
 					s = spath+fn; 
 					t = tpath+fn;
+					std::cout << "Moving " << s << " to " << t << std::endl;
 					rename(s, t);
 					
 				}
