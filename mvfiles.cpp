@@ -34,7 +34,11 @@ int main(int argc, char** argv)
 					fn = it->filename().string();
 					s = spath+fn; 
 					t = tpath+fn;
+
+					#ifndef NDEBUG					
 					std::cout << "Moving " << s << " to " << t << std::endl;
+					#endif
+
 					boost::filesystem::rename(s, t);
 					
 				}
