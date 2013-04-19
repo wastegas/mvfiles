@@ -1,5 +1,5 @@
 CC=c++
-CCFLAGS=-Wall
+CCFLAGS=-D NDEBUG	-Wall
 LDFLAGS=-lboost_system	-lboost_filesystem
 BINDIR=build
 TARGET=$(BINDIR)/mvfiles
