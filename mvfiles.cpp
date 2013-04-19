@@ -41,6 +41,11 @@ int main(int argc, char** argv)
 
 			}
 		}
+		else
+		{
+			std::cerr << argv[1] << " not found." << std::endl;
+			return -1;
+		}
 	}
 	catch (const boost::filesystem::filesystem_error& ex)
 	{
