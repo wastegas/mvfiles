@@ -2,23 +2,15 @@
 #include <vector>
 #include <iostream>
 
-using boost::filesystem::path;
-using boost::filesystem::filesystem_error;
-using boost::filesystem::directory_iterator;
-using boost::filesystem::rename;
-using std::vector;
-using std::cout;
-using std::endl;
-
 int main(int argc, char** argv)
 {
 	if(argc < 3)
 	{
-		cout << "Usage: mvfiles <source> <target>" << endl;
+		std::cerr << "Usage: mvfiles <source> <target>" << std::endl;
 		return -1;
 	}
 	
-	path p(argv[1]);
+	boost::filesystem::path p(argv[1]);
 	std::string tpath(argv[2]);
 	std::string spath(argv[1]);
 	
@@ -29,12 +21,12 @@ int main(int argc, char** argv)
 		{
 			if(is_directory(p))
 			{
-				typedef vector<path> vec;
+				typedef std::vector<boost::filesystem::path> vec;
 				vec v;
 				std::string fn;
-				copy(directory_iterator(p), 
-						directory_iterator(), 
-						back_inserter(v));
+				std::copy(boost::filesystem::directory_iterator(p), 
+						boost::filesystem::directory_iterator(), 
+						std::back_inserter(v));
 
 				std::string s, t;
 				for (vec::const_iterator it(v.begin()); it != v.end(); ++it)
@@ -43,16 +35,16 @@ int main(int argc, char** argv)
 					s = spath+fn; 
 					t = tpath+fn;
 					std::cout << "Moving " << s << " to " << t << std::endl;
-					rename(s, t);
+					boost::filesystem::rename(s, t);
 					
 				}
 
 			}
 		}
 	}
-	catch (const filesystem_error& ex)
+	catch (const boost::filesystem::filesystem_error& ex)
 	{
-		cout << ex.what() << endl;
+		std::cerr << ex.what() << std::endl;
 	}
 
 	return 0;
