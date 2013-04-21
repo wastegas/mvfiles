@@ -1,2 +1,8 @@
+# backups
 *~
+*.bak
+
+# swap files
+*.swp
+
 build/
