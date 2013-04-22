@@ -26,7 +26,7 @@ void moveFiles(std::string &spath, std::string &tpath)
 					s = spath + fn;
 					t = tpath + fn;
 
-#ifndef NDBUG
+#ifndef NDEBUG
 					std::cout << "Moving " << s << " to " << t << std::endl;
 #endif
 					
