@@ -1,15 +1,23 @@
-CC=c++
-CCFLAGS=-D NDEBUG	-Wall
-LDFLAGS=-lboost_system	-lboost_filesystem
+CC=c++	-std=c++11
+CXXOPTS=-DNDEBUG	-Wall
+CXXFLAGS=$(CXXOPTS)
+LDLIBS=-lboost_system	-lboost_filesystem
+OBJDIR=obj
 BINDIR=build
 TARGET=$(BINDIR)/mvfiles
 
-.PHONY:	all
-
 all:	$(TARGET)
 
-$(TARGET):	mvfiles.cpp
-	$(CC)	$^	-o $@	$(LDFLAGS)	$(CCFLAGS)
+_OBJS=	main.o	\
+	mvfiles.o	\
+
+OBJS=	$(patsubst	%,$(OBJDIR)/%,$(_OBJS))
+
+$(OBJDIR)/%.o:	%.cpp
+	$(CC)	$(CXXFLAGS)	-c	-o	$@	$<
+
+$(TARGET):	$(OBJS)
+	$(CC)	$^	$(LDLIBS)	-o	$@
 
 clean:
-	rm build/*
+	rm	-f	$(OBJDIR)/*	$(TARGET)
