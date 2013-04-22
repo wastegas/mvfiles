@@ -1,5 +1,5 @@
 CC=c++	-std=c++11
-CXXOPTS=-DNDEBUG	-Wall
+CXXOPTS=-Wall
 CXXFLAGS=$(CXXOPTS)
 LDLIBS=-lboost_system	-lboost_filesystem
 OBJDIR=obj
@@ -8,6 +8,9 @@ TARGET=$(BINDIR)/mvfiles
 
 all:	$(TARGET)
 
+debug:	CC+=	-DDEBUG -g
+debug:	$(TARGET)
+	
 _OBJS=	main.o	\
 	mvfiles.o	\
 
