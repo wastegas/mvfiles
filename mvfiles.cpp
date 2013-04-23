@@ -26,9 +26,9 @@ void moveFiles(std::string &spath, std::string &tpath)
 					s = spath + fn;
 					t = tpath + fn;
 
-#ifdef DEBUG
+					#ifdef DEBUG
 					std::cout << "Moving " << s << " to " << t << std::endl;
-#endif
+					#endif
 					
 					boost::filesystem::rename(s, t);
 				}
