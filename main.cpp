@@ -13,6 +13,8 @@ int main(int argc, char** argv)
 	std::string tpath(argv[2]);
 
 	moveFiles(spath, tpath);
+	
+	std::cout << "move completed" << std::endl;
 
 	return 0;
 }
