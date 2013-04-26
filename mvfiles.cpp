@@ -31,6 +31,7 @@ void moveFiles(std::string &spath, std::string &tpath)
 					#endif
 					
 					boost::filesystem::rename(s, t);
+					std::cout << "Move complete." << std::endl;
 				}
 			}			
 		}
