@@ -22,8 +22,6 @@ int main(int argc, char** argv)
 		tpath += '/';
 
 	moveFiles(spath, tpath);
-	
-	std::cout << "move completed" << std::endl;
 
 	return 0;
 }
