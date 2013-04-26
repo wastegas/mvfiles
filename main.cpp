@@ -10,15 +10,12 @@ int main(int argc, char** argv)
 	}
 
 	std::string spath(argv[1]);
-	std::size_t len = spath.size();
-
-	if (spath[len-1] != '/')
+	if (spath.back() != '/')
 		spath += '/';
 	
 	std::string tpath(argv[2]);
-	len = tpath.size();
 
-	if(tpath[len-1] != '/')
+	if(tpath.back() != '/')
 		tpath += '/';
 
 	moveFiles(spath, tpath);
