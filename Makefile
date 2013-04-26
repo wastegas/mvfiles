@@ -1,5 +1,5 @@
-CC=c++	-std=c++11
-CXXOPTS=-Wall
+CC=clang++
+CXXOPTS=-std=c++11
 CXXFLAGS=$(CXXOPTS)
 LDLIBS=-lboost_system	-lboost_filesystem
 OBJDIR=obj
@@ -11,8 +11,8 @@ all:	$(TARGET)
 debug:	CC+=	-DDEBUG -g
 debug:	$(TARGET)
 	
-_OBJS=	main.o	\
-	mvfiles.o	\
+_OBJS=	mvfiles.o	\
+	main.o	\
 
 OBJS=	$(patsubst	%,$(OBJDIR)/%,$(_OBJS))
 
