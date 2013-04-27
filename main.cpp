@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 		std::cerr << "Usage: mvfiles <source path> <target path>" << std::endl;
 		return -1;
 	}
-
+	// check if trailing / if not append it
 	std::string spath(argv[1]);
 	if (spath.back() != '/')
 		spath += '/';
