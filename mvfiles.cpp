@@ -13,7 +13,7 @@ void moveFiles(std::string &spath, std::string &tpath)
 			{
 				typedef std::vector<boost::filesystem::path> vec;
 				vec v;
-				std::string fn;
+				std::string fn;	// for filenames
 				std::copy(boost::filesystem::directory_iterator(p),
 						boost::filesystem::directory_iterator(),
 						std::back_inserter(v));
@@ -22,7 +22,7 @@ void moveFiles(std::string &spath, std::string &tpath)
 				for(vec::const_iterator it(v.begin());
 						it != v.end(); ++it)
 				{
-					fn = it->filename().string();
+					fn = it->filename().string();	// get string
 					s = spath + fn;
 					t = tpath + fn;
 
